@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "parquet-info",
+  "version": "0.0.1",
+
+  "description": "Reads parquet informations in Google Cloud Storage.",
+
+  "icons": {
+    "48": "icons/icon-48.png"
+  },
+
+  "permissions": ["activeTab"],
+
+  "browser_action": {
+    "default_icon": "icons/icon-48.png",
+    "default_title": "Parquet Info",
+    "default_popup": "panel/panel.html"
+  },
+
+  "background": {
+    "scripts": ["panel/panel.js"],
+    "persistent": false,
+    "type": "module"
+  },
+
+  "content_security_policy": "default-src 'self' https://cdn.jsdelivr.net https://bdp-raw-prod.storage.googleapis.com https://*.data.gouv.fr; script-src 'self' 'unsafe-eval' blob: https://cdn.jsdelivr.net; manifest-src 'self'",
+
+  "content_scripts": [
+    {
+      "matches": ["*://console.cloud.google.com/storage*"],
+      "js": ["content_scripts/main.js"],
+      "css": ["content_scripts/main.css"]
+    }
+  ]
+}

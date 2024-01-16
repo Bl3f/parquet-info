@@ -1,0 +1,17 @@
+#tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 64000;
+  background: #ccc;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+#tooltip .name {
+  font-weight: bold;
+}
+
+#tooltip .type {
+  font-style: italic;
+}
